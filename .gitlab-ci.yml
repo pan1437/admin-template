@@ -1,0 +1,21 @@
+stages:
+  - dev
+  - prod
+
+dev:
+  stage: dev
+  script:
+    - sh /home/gitlab-runner/.gitlab-html-test.sh eye-admin-html
+  only:
+    - develop
+  tags:
+    - fe
+
+prod:
+  stage: prod
+  script:
+    - sh /home/gitlab-runner/.gitlab-html-v1-prod.sh eye-admin-html
+  only:
+    - master
+  tags:
+    - fe
